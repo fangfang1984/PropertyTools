@@ -752,6 +752,7 @@ namespace PropertyTools.Wpf
             this.SubscribeForCollectionChanges(children);
             this.itemLevelMap[item] = this.itemLevelMap[parent] + 1;
             this.isExpandedMap[item] = false;
+
             try
             {
                 this.Items.Insert(index, item);
@@ -759,7 +760,8 @@ namespace PropertyTools.Wpf
             catch (ArgumentException e)
             {
                 // Workaround for #38 and #142 - it seems to kind of work if we handle this exception
-                if (e.Message == "Height must be non-negative.")
+                // == "Height must be non-negative."
+                if (e.Message.Contains("Height") || e.Message.Contains("高度"))
                 {
                     return;
                 }

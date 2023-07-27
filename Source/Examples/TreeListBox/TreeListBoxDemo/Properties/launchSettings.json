@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TreeListBoxDemo": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
